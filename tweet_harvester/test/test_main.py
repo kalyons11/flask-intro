@@ -17,4 +17,4 @@ class TestMain(unittest.TestCase):
         # print(app.config)
         # res = get_tweets(app.config['DEFAULT_TWITTER_USERNAME'])
         # self.assertIsNotNone(res)
-        print(app.config['TEST_KEY'])
+        self.assertEqual(app.config['TEST_KEY'], 'test_value')
