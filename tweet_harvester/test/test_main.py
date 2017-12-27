@@ -13,8 +13,10 @@ class TestMain(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.data.decode(), '<h1>Hello World</h1>')
 
+    def test_secure_keys(self):
+        self.assertEqual(app.config['TEST_KEY'], 'test_value')
+
     def test_tweets(self):
-        # print(app.config)
+        self.assertIsNone(app.config['TWITTER_ACCESS_TOKEN'])
         # res = get_tweets(app.config['DEFAULT_TWITTER_USERNAME'])
         # self.assertIsNotNone(res)
-        self.assertEqual(app.config['TEST_KEY'], 'test_value')
