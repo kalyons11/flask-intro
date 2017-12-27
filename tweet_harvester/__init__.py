@@ -1,4 +1,11 @@
-from flask import Flask, json, request
+"""Main code for our Flask application.
+
+Credit given to:
+
+http://thelaziestprogrammer.com/sharrington/web-development/tweet-archiver-with-flask-and-tweepy-part-1
+"""
+
+from flask import Flask, render_template
 import tweepy
 
 # Init app with proper name
@@ -40,3 +47,10 @@ def get_tweets(username):
                    tweepy_api.user_timeline(screen_name=username)))
 
     return out
+
+
+@app.route(app.config['TWEET_PATH'] + '<string:username>')
+def tweets(username):
+    return render_template("tweets.html",
+                           tweets=get_tweets(username),
+                           username=username)
