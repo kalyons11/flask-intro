@@ -4,7 +4,7 @@ Package setup file.
 
 from setuptools import setup, find_packages
 
-setup(name='flaskkev',
+setup(name='tweet_harvester',
       version='1.0.0',
       author='Kevin Lyons',
       description='First attempt at using Flask with Python.',
