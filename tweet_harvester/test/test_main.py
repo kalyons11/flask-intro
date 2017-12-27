@@ -17,7 +17,5 @@ class TestMain(unittest.TestCase):
         self.assertEqual(app.config['TEST'], 'VALUE')
 
     def test_tweets(self):
-        pass
-        # self.assertIsNone(app.config['TWITTER_ACCESS_TOKEN'])
-        # res = get_tweets(app.config['DEFAULT_TWITTER_USERNAME'])
-        # self.assertIsNotNone(res)
+        res = get_tweets(app.config['DEFAULT_TWITTER_USERNAME'])
+        self.assertIsNotNone(res)
