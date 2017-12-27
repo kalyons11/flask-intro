@@ -22,6 +22,7 @@ auth.set_access_token(app.config['TWITTER_ACCESS_TOKEN'],
 tweepy_api = tweepy.API(auth)
 
 
+@app.route('/')
 @app.route('/test')
 def hello_world():
     return '<h1>Hello World</h1>'
@@ -35,6 +36,11 @@ def get_tweets(username):
 
     Returns:
         list[dict]: list of all valid tweets
+
+    >>> x = get_tweets('realDonaldTrump')
+    >>> assert isinstance(x, list)
+    >>> assert isinstance(x[0], dict)
+    >>> assert x[0]['username'] == 'realDonaldTrump'
     """
     def tweet_map_func(t):
         return {'tweet': t.text,

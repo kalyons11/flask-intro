@@ -5,9 +5,11 @@ install:
 	pip install . --upgrade
 
 test:
-	nosetests -v --nocapture
+	nosetests tweet_harvester/ -v --nocapture --with-doctest
 
 deploy:
 	pip install pipreqs
 	pipreqs . --force
 
+start:
+	python run.py
